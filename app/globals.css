@@ -11,10 +11,13 @@
     var(--primary-start),
     var(--primary-end)
   );
+
+  --text-secondary: #475467;
 }
 
 @theme {
   --color-primary: var(--primary-gradient);
+  --color-secondary: var(--text-secondary);
 }
 
 .bg-primary {
