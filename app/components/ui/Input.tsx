@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import * as React from "react";
 
 interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -24,14 +25,14 @@ export function Input({
 
       <input
         id={inputId}
-        className={`
-         rounded-lg px-2.5 h-10 text-sm
-          input-border
-          focus:outline-none focus:ring-2 focus:ring-blue-500
-          disabled:opacity-50 disabled:cursor-not-allowed
-          ${error ? "border-red-500 focus:ring-red-500" : ""}
-          ${className}
-        `}
+        className={cn(
+          "rounded-lg px-2.5 h-10 text-sm",
+          "input-border rounded-lg",
+          "focus:outline-none focus:ring-1 focus:ring-blue-500",
+          "disabled:opacity-50 disabled:cursor-not-allowed",
+          error && "border-red-500 focus:ring-red-500",
+          className
+        )}
         {...props}
       />
 

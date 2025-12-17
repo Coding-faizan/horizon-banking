@@ -127,12 +127,9 @@ export default function SignupPage() {
             <span className="text-secondary text-sm">
               Already have an account?
             </span>
-            <Link
-              href={routes.login}
-              className="text-primary font-semibold text-sm"
-            >
-              Login
-            </Link>
+            <Button variant="link" asChild>
+              <Link href={routes.login}>Login</Link>
+            </Button>
           </div>
         </form>
       </div>

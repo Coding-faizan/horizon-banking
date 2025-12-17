@@ -70,16 +70,13 @@ export default function LoginPage() {
             {isSubmitting ? "Logging in..." : "Login"}
           </Button>
 
-          <div className="flex justify-center mt-6 gap-1">
+          <div className="flex justify-center items-center mt-6 gap-1">
             <span className="text-secondary text-sm">
               Don’t have an account?
             </span>
-            <Link
-              href={routes.signup}
-              className="text-primary font-semibold text-sm"
-            >
-              Sign up
-            </Link>
+            <Button variant="link" asChild>
+              <Link href={routes.signup}>Sign up</Link>
+            </Button>
           </div>
         </form>
       </div>
