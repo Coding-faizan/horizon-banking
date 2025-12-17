@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 
 import { Logo } from "../../components/Logo";
 import { Button } from "../../components/ui/Button";
-import { TextInput } from "../../components/ui/TextInput";
+import { Input } from "../../components/ui/Input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginFormValues, loginSchema } from "@/lib/schemas/auth";
 
@@ -38,7 +38,7 @@ export default function LoginPage() {
 
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
           <div className="flex flex-col gap-4">
-            <TextInput
+            <Input
               label="Email"
               type="email"
               placeholder="Enter your email"
@@ -46,7 +46,7 @@ export default function LoginPage() {
               error={errors.email?.message}
             />
 
-            <TextInput
+            <Input
               label="Password"
               type="password"
               placeholder="Enter your password"

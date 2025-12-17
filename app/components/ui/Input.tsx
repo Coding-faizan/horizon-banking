@@ -5,7 +5,7 @@ interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: string;
 }
 
-export function TextInput({
+export function Input({
   label,
   error,
   id,
