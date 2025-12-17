@@ -8,6 +8,7 @@ import { Button } from "@/app/components/ui/Button";
 import { Input } from "@/app/components/ui/Input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginFormValues, loginSchema } from "@/lib/schemas/auth";
+import { routes } from "@/lib/routes";
 
 export default function LoginPage() {
   const {
@@ -73,7 +74,10 @@ export default function LoginPage() {
             <span className="text-secondary text-sm">
               Don’t have an account?
             </span>
-            <Link href="/signup" className="text-primary font-semibold text-sm">
+            <Link
+              href={routes.signup}
+              className="text-primary font-semibold text-sm"
+            >
               Sign up
             </Link>
           </div>

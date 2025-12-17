@@ -8,6 +8,7 @@ import { Button } from "@/app/components/ui/Button";
 import { Input } from "@/app/components/ui/Input";
 import { SignupFormValues, signupSchema } from "@/lib/schemas/auth";
 import { Logo } from "@/app/components/Logo";
+import { routes } from "@/lib/routes";
 
 export default function SignupPage() {
   const {
@@ -126,7 +127,10 @@ export default function SignupPage() {
             <span className="text-secondary text-sm">
               Already have an account?
             </span>
-            <Link href="/login" className="text-primary font-semibold text-sm">
+            <Link
+              href={routes.login}
+              className="text-primary font-semibold text-sm"
+            >
               Login
             </Link>
           </div>
