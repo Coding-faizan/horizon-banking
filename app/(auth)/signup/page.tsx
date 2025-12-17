@@ -2,13 +2,12 @@
 
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { Logo } from "../../components/Logo";
-import { Button } from "../../components/ui/Button";
-import { Input } from "../../components/ui/Input";
+import { Button } from "@/app/components/ui/Button";
+import { Input } from "@/app/components/ui/Input";
 import { SignupFormValues, signupSchema } from "@/lib/schemas/auth";
+import { Logo } from "@/app/components/Logo";
 
 export default function SignupPage() {
   const {

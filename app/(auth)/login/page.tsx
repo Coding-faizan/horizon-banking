@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 
-import { Logo } from "../../components/Logo";
-import { Button } from "../../components/ui/Button";
-import { Input } from "../../components/ui/Input";
+import { Logo } from "@/app/components/Logo";
+import { Button } from "@/app/components/ui/Button";
+import { Input } from "@/app/components/ui/Input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginFormValues, loginSchema } from "@/lib/schemas/auth";
 
