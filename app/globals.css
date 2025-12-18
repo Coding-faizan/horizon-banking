@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   /* Solid fallbacks (optional) */
@@ -18,6 +18,10 @@
 @theme {
   --color-primary: var(--primary-gradient);
   --color-secondary: var(--text-secondary);
+  --color-gray-200: oklch(94.3% 0.011 270);
+  --color-gray-500: oklch(55.6% 0.03 260);
+  --color-gray-600: oklch(45.9% 0.033 260);
+  --color-gray-700: oklch(36.8% 0.03 260);
 }
 
 .bg-primary {
