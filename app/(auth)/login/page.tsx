@@ -72,7 +72,7 @@ export default function LoginPage() {
 
           <div className="flex justify-center items-center mt-6 gap-1">
             <span className="text-secondary text-sm">
-              Don’t have an account?
+              Don&apos;t have an account?
             </span>
             <Button variant="link" asChild>
               <Link href={routes.signup}>Sign up</Link>
