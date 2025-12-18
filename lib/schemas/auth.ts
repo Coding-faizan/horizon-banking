@@ -25,7 +25,7 @@ export const signupSchema = z.object({
   state: z.string().min(2, "Invlalid state"),
   postalCode: z.string().min(4, "Invalid postal code"),
   dateOfBirth: z.coerce
-    .date({
+    .date<Date>({
       error: (issue) =>
         issue.input === undefined
           ? "Date of birth is required"
