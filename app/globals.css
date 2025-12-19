@@ -19,6 +19,7 @@
   --color-primary: var(--primary-gradient);
   --color-secondary: var(--text-secondary);
 
+  --color-gray-25: rgba(252, 252, 253, 1);
   --color-gray-100: rgba(249, 250, 251, 1);
   --color-gray-200: oklch(94.3% 0.011 270);
   --color-gray-500: oklch(55.6% 0.03 260);
