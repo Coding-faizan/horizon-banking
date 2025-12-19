@@ -47,6 +47,8 @@
   --color-error-25: rgba(255, 249, 249, 1);
   --color-error-50: rgba(254, 243, 242, 1);
   --color-error-700: rgba(180, 35, 24, 1);
+
+  --color-purple-600: rgba(94, 55, 255, 1);
 }
 
 .bg-primary {
