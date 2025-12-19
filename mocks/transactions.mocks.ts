@@ -1,0 +1,51 @@
+import { Transaction } from '@/types/types';
+
+export const transactions: Transaction[] = [
+  {
+    id: 1,
+    name: 'Spotify',
+    amount: -15.0,
+    status: 'processing',
+    date: 'Wed 1:00pm',
+    category: 'subscriptions',
+    avatar: 'https://picsum.photos/40',
+  },
+  {
+    id: 2,
+    name: 'Alexa Doe',
+    amount: 88.0,
+    status: 'success',
+    date: 'Wed 2:45am',
+    category: 'deposit',
+    avatar: 'https://picsum.photos/40',
+    highlight: true,
+  },
+  {
+    id: 3,
+    name: 'Figma',
+    amount: -18.99,
+    status: 'processing',
+    date: 'Tue 6:10pm',
+    category: 'income',
+    avatar: 'https://picsum.photos/40',
+  },
+  {
+    id: 4,
+    name: 'Fresh F&V',
+    amount: -88.0,
+    status: 'success',
+    date: 'Tue 12:15pm',
+    category: 'groceries',
+    initials: 'FV',
+    highlight: true,
+  },
+  {
+    id: 5,
+    name: 'Sam Sulek',
+    amount: -40.2,
+    status: 'declined',
+    date: 'Tue 5:40am',
+    category: 'food',
+    avatar: 'https://picsum.photos/40',
+  },
+];

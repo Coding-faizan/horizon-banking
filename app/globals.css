@@ -18,10 +18,35 @@
 @theme {
   --color-primary: var(--primary-gradient);
   --color-secondary: var(--text-secondary);
+
+  --color-gray-100: rgba(249, 250, 251, 1);
   --color-gray-200: oklch(94.3% 0.011 270);
   --color-gray-500: oklch(55.6% 0.03 260);
   --color-gray-600: oklch(45.9% 0.033 260);
   --color-gray-700: oklch(36.8% 0.03 260);
+  --color-gray-900: rgba(16, 24, 40, 1);
+
+  --color-blue-25: rgba(245, 250, 255, 1);
+  --color-blue-100: rgba(209, 233, 255, 1);
+  --color-blue-600: rgba(21, 112, 239, 1);
+  --color-blue-700: rgba(23, 92, 211, 1);
+  --color-blue-900: rgba(25, 65, 133, 1);
+
+  --color-pink-25: rgba(254, 246, 251, 1);
+  --color-pink-100: rgba(252, 231, 246, 1);
+  --color-pink-600: rgba(221, 37, 144, 1);
+  --color-pink-700: rgba(193, 21, 116, 1);
+  --color-pink-900: rgba(133, 22, 81, 1);
+
+  --color-success-25: rgba(246, 254, 249, 1);
+  --color-success-100: rgba(209, 250, 223, 1);
+  --color-success-600: rgba(3, 152, 85, 1);
+  --color-success-700: rgba(2, 122, 72, 1);
+  --color-success-900: rgba(5, 79, 49, 1);
+
+  --color-error-25: rgba(255, 249, 249, 1);
+  --color-error-50: rgba(254, 243, 242, 1);
+  --color-error-700: rgba(180, 35, 24, 1);
 }
 
 .bg-primary {
