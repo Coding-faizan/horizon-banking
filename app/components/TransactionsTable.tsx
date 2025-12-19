@@ -14,7 +14,7 @@ export default function TransactionTable({
   transactions: Transaction[];
 }) {
   return (
-    <div className="overflow-hidden rounded-lg bg-white">
+    <div className="overflow-scroll rounded-lg bg-white">
       <table className="w-full">
         <thead className="bg-gray-100 border-b border-gray-200">
           <tr className="text-left text-xs font-medium text-gray-600">
