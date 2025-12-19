@@ -1,4 +1,5 @@
 import { AccountCard } from '@/app/components/AccountCard';
+import { BankCard } from '@/app/components/BankCard';
 import { BudgetCard } from '@/app/components/BudgetCard';
 import TransactionsTable from '@/app/components/TransactionsTable';
 import { CoinsIcon } from '@/app/components/ui/icons/CoinsIcon';
@@ -92,7 +93,7 @@ export default function HomePage() {
             </p>
             <p className="text-base text-gray-600">adrian@jsmastery.pro</p>
           </div>
-          <div className="px-6">
+          <div className="px-6 space-y-2">
             <div className="flex justify-between">
               <p className="font-semibold text-lg text-gray-900">My Banks</p>
               <span className="flex gap-2">
@@ -100,6 +101,15 @@ export default function HomePage() {
                 <p className="font-semibold text-sm text-gray-600">Add bank</p>
               </span>
             </div>
+
+            <BankCard
+              bankName={'Horizon Banking'}
+              cardNumber={'1234 1234 1234 1234'}
+              cardHolder={'Faizan Ahmad'}
+              expiryDate={'05/24'}
+              cardType={'visa'}
+              variant={'blue'}
+            />
           </div>
 
           {/* My budgets Section */}
