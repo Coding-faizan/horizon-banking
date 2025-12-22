@@ -33,14 +33,14 @@ export default function HomePage() {
 
         {/* Accounts Cards */}
         <div className="flex gap-5 p-6 border border-gray-200 rounded-lg">
-          <div className="w-full max-w-30">
+          <div className="w-30 h-30">
             <DoughnutChart
               data={[12, 12, 13]}
               backgroundColor={['#0179FE', '#4893FF', '#E9F2FF']}
             />
           </div>
 
-          <div className="space-y-8 w-full flex-2">
+          <div className="space-y-6 w-full flex-2">
             <div className="flex items-center justify-between w-full">
               <p className="text-base font-semibold text-gray-900">
                 2 Bank accounts
