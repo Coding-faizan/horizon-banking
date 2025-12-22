@@ -10,7 +10,7 @@ export interface BankCardProps {
   cardHolder: string;
   expiryDate: string;
   cardType: 'visa' | 'mastercard';
-  variant: 'blue' | 'purple' | 'gray';
+  variant: 'blue' | 'purple';
   isCopyable?: boolean;
   spendingLimit?: number;
   spendingUsed?: number;
@@ -30,13 +30,11 @@ export const BankCard = ({
   const variantClasses = {
     blue: 'bg-gradient-to-r from-blue-600 to-blue-400',
     purple: 'bg-gradient-to-r from-purple-600 to-purple-600',
-    gray: 'bg-gradient-to-r from-gray-600 to-gray-400',
   };
 
   const progressStyles = {
     blue: { progressFillColor: 'bg-primary' },
     purple: { progressFillColor: 'bg-purple-600' },
-    gray: { progressFillColor: 'bg-gray-700' },
   };
 
   return (
