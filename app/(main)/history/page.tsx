@@ -5,17 +5,14 @@ import { BankAccountCard } from '@/app/components/BalanceCard';
 import { Pagination } from '@/app/components/Pagination';
 import TransactionTable from '@/app/components/TransactionsTable';
 import { transactions } from '@/mocks/transactions.mocks';
+import { Account } from '@/types/types';
 import { useState } from 'react';
-
-const bankOptions = [
-  { label: 'Select Account', value: '' },
-  { label: 'Chase Savings - 0910', value: 'chase-savings' },
-  { label: 'Bank of America - 5523', value: 'boa-checking' },
-  { label: 'Wells Fargo - 8891', value: 'wells-fargo' },
-];
 
 export default function HistoryPage() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedAccount, setSelectedAccount] = useState<Account | undefined>(
+    undefined
+  );
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -35,7 +32,10 @@ export default function HistoryPage() {
         </div>
 
         <div className="max-w-82 w-full">
-          <AccountSelect />
+          <AccountSelect
+            selectedAccount={selectedAccount}
+            onSelect={setSelectedAccount}
+          />
         </div>
       </div>
 

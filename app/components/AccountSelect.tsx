@@ -91,15 +91,15 @@ export default function AccountSelect({
               >
                 <div className="flex items-center gap-4">
                   <div
-                    className={`flex h-12 w-12 items-center justify-center rounded-full text-white text-lg font-medium ${account.color}`}
+                    className={`flex h-10 w-10 items-center justify-center rounded-full text-white text-lg font-medium ${account.color}`}
                   >
                     {account.initials}
                   </div>
                   <div className="text-left">
-                    <p className="text-base font-semibold text-gray-800">
+                    <p className="text-base font-semibold text-gray-700">
                       {account.name}
                     </p>
-                    <p className="text-sm text-blue-600 font-medium">
+                    <p className="text-sm text-primary font-medium">
                       {account.balance}
                     </p>
                   </div>
@@ -110,9 +110,7 @@ export default function AccountSelect({
                 )}
               </button>
 
-              {index !== accounts.length - 1 && (
-                <div className="mx-5 border-t border-gray-200" />
-              )}
+              <div className="border-b border-gray-200" />
             </div>
           ))}
 
@@ -120,9 +118,11 @@ export default function AccountSelect({
           <div className="flex items-center justify-between px-5 py-4 text-gray-700 hover:bg-gray-50 cursor-pointer">
             <div className="flex items-center gap-3">
               <Plus className="h-5 w-5" />
-              <span className="font-medium">Add new bank</span>
+              <span className="font-medium text-xs text-gray-700">
+                Add new bank
+              </span>
             </div>
-            <span className="text-sm">⌘ +</span>
+            <span className="text-sm text-gray-500">⌘ +</span>
           </div>
         </div>
       )}
