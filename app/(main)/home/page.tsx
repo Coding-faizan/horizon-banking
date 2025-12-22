@@ -66,7 +66,7 @@ export default function HomePage() {
             type={'savings'}
             initials={'CB'}
           />
-          <TransactionsTable transactions={transactions} />
+          <TransactionsTable transactions={transactions.slice(0, 6)} />
         </div>
       </div>
       {/* Profile Section */}

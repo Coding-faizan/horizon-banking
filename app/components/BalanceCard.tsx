@@ -1,7 +1,7 @@
 export function BankAccountCard() {
   return (
     <div className="w-full rounded-xl bg-blue-600 p-6 text-white shadow-lg">
-      <div className="flex flex-col md:flex-row items-center justify-between">
+      <div className="flex flex-col gap-2 items-start sm:flex-row sm:items-center sm:justify-between">
         {/* Left side */}
         <div className="space-y-4">
           <div>
