@@ -50,6 +50,7 @@ export default function Sidebar() {
               <XIcon className="size-6" />
             </button>
           </div>
+          {!open && <Logo className="pl-4" />}
 
           <div className="p-4">
             <Input
@@ -58,7 +59,6 @@ export default function Sidebar() {
               icon={<SearchIcon className="size-5 text-gray-400" />}
             />
           </div>
-
           <nav className="px-4 space-y-1">
             <NavLink
               href={routes.home}

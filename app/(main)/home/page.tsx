@@ -17,7 +17,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row">
+    <div className="flex flex-col xl:flex-row">
       <div className="flex-1 flex flex-col gap-8 py-12 px-8">
         {/* Welcome section */}
         <div className="flex flex-col gap-5">
@@ -76,7 +76,7 @@ export default function HomePage() {
         </div>
       </div>
       {/* Profile Section */}
-      <div className="relative w-sm border-l border-gray-200 h-screen pl-2 md:pl-0">
+      <div className="relative w-full xl:w-sm border-l border-gray-200 h-screen pl-2 xl:pl-0">
         <div className="w-full h-32 relative">
           <Image
             src="/images/profile-gradient.png"
