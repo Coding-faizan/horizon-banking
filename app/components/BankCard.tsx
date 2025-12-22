@@ -1,7 +1,6 @@
 import { Copy, Nfc } from 'lucide-react';
 import Image from 'next/image';
 import { BankCardLines } from './BankCardLines';
-import { div } from 'framer-motion/client';
 import { ProgressBar } from './ProgressBar';
 
 export interface BankCardProps {
