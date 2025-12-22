@@ -1,6 +1,7 @@
 import { AccountCard } from '@/app/components/AccountCard';
 import { BankCard } from '@/app/components/BankCard';
 import { BudgetCard } from '@/app/components/BudgetCard';
+import { DoughnutChart } from '@/app/components/DoughnutChart';
 import TransactionsTable from '@/app/components/TransactionsTable';
 import { CoinsIcon } from '@/app/components/ui/icons/CoinsIcon';
 import TabBar from '@/app/components/ui/TabBar';
@@ -31,9 +32,14 @@ export default function HomePage() {
 
         {/* Accounts Cards */}
         <div className="flex gap-5 p-6 border border-gray-200 rounded-lg">
-          <div></div>
+          <div className="w-full max-w-30">
+            <DoughnutChart
+              data={[12, 12, 13]}
+              backgroundColor={['#0179FE', '#4893FF', '#E9F2FF']}
+            />
+          </div>
 
-          <div className="space-y-8 w-full">
+          <div className="space-y-8 w-full flex-2">
             <div className="flex items-center justify-between w-full">
               <p className="text-base font-semibold text-gray-900">
                 2 Bank accounts
