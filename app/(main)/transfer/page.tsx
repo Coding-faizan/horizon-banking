@@ -4,16 +4,9 @@ import { Divider } from '@/app/components/Divider';
 import { Button } from '@/app/components/ui/Button';
 import { BankIcon } from '@/app/components/ui/icons/BankIcon';
 import { Input } from '@/app/components/ui/Input';
-import { Building2, ChevronDown, MoreVertical } from 'lucide-react';
+import { TransferForm } from '@/lib/schemas/validationSchemas';
+import { ChevronDown, MoreVertical } from 'lucide-react';
 import { useForm } from 'react-hook-form';
-
-type TransferForm = {
-  sourceBank: string;
-  note: string;
-  email: string;
-  accountNumber: string;
-  amount: string;
-};
 
 const bankOptions = [
   { label: 'Select Account', value: '' },
@@ -167,11 +160,10 @@ export default function PaymentTransferPage() {
                   </label>
                   <div className="w-full flex-2">
                     <Input
-                      id="email"
-                      type="email"
                       placeholder="john@gmail.com"
+                      type="email"
+                      {...register('email')}
                       error={errors.email?.message}
-                      {...register('email', { required: 'Email is required' })}
                     />
                   </div>
                 </div>

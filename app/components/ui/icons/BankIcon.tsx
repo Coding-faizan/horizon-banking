@@ -22,8 +22,8 @@ export const BankIcon = (props: React.SVGProps<SVGSVGElement>) => (
         y2="8"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#0179FE" />
-        <stop offset="1" stop-color="#4893FF" />
+        <stop stopColor="#0179FE" />
+        <stop offset="1" stopColor="#4893FF" />
       </linearGradient>
     </defs>
   </svg>
