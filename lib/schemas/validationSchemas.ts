@@ -46,12 +46,24 @@ export type SignupFormValues = z.infer<typeof signupSchema>;
 
 export const transferSchema = z.object({
   email: z.email('Please enter a valid email'),
-  sourceBank: z.string().min(1, 'Please select a source bank'),
+  sourceBank: z
+    .string({
+      error: (issue) =>
+        issue.input === undefined
+          ? 'Source bank is required'
+          : 'Invalid source bank',
+    })
+    .min(1, 'Please select a source bank'),
   accountNumber: z
     .string()
     .min(5, 'Account number must be at least 5 digits')
     .max(20, 'Account number must be at most 20 digits'),
-  amount: z.number().min(1, 'Amount must be at least 1'),
+  amount: z
+    .number({
+      error: (issue) =>
+        issue.input === undefined ? 'Amount is required' : 'Invalid amount',
+    })
+    .min(1, 'Amount must be at least 1'),
   note: z.string().max(200).optional(),
 });
 

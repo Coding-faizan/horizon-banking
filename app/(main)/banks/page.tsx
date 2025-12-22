@@ -1,5 +1,4 @@
 import { BankCard } from '@/app/components/BankCard';
-import { ProgressBar } from '@/app/components/ProgressBar';
 import { bankCards } from '@/mocks/banks.mocks';
 
 export default function BanksPage() {

@@ -1,19 +1,15 @@
 'use client';
 
+import AccountSelect from '@/app/components/AccountSelect';
 import { Divider } from '@/app/components/Divider';
 import { Button } from '@/app/components/ui/Button';
-import { BankIcon } from '@/app/components/ui/icons/BankIcon';
 import { Input } from '@/app/components/ui/Input';
-import { TransferForm } from '@/lib/schemas/validationSchemas';
-import { ChevronDown, MoreVertical } from 'lucide-react';
-import { useForm } from 'react-hook-form';
-
-const bankOptions = [
-  { label: 'Select Account', value: '' },
-  { label: 'Chase Savings - 0910', value: 'chase-savings' },
-  { label: 'Bank of America - 5523', value: 'boa-checking' },
-  { label: 'Wells Fargo - 8891', value: 'wells-fargo' },
-];
+import { TransferForm, transferSchema } from '@/lib/schemas/validationSchemas';
+import { Account } from '@/types/types';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { MoreVertical } from 'lucide-react';
+import { useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 
 export default function PaymentTransferPage() {
   const {
@@ -21,10 +17,17 @@ export default function PaymentTransferPage() {
     handleSubmit,
     formState: { errors },
     watch,
-  } = useForm<TransferForm>({ mode: 'onBlur' });
+    control,
+  } = useForm<TransferForm>({
+    resolver: zodResolver(transferSchema),
+    mode: 'onBlur',
+  });
+
+  const [selectedAccount, setSelectedAccount] = useState<Account | undefined>(
+    undefined
+  );
 
   const onSubmit = (data: TransferForm) => {
-    // Replace with API call/integration when ready
     console.log('Transfer form submitted', data);
   };
 
@@ -74,31 +77,20 @@ export default function PaymentTransferPage() {
                   </label>
 
                   <div className="w-full flex-2">
-                    <div className="relative max-w-lg">
-                      <select
-                        id="sourceBank"
-                        {...register('sourceBank', {
-                          required: 'Please select a source bank',
-                        })}
-                        className="w-full appearance-none rounded-lg bg-white pl-10 pr-10 py-3 text-sm text-gray-900 focus:outline-none focus:ring-1 focus:ring-blue-500 border border-gray-200"
-                      >
-                        {bankOptions.map((option) => (
-                          <option key={option.value} value={option.value}>
-                            {option.label}
-                          </option>
-                        ))}
-                      </select>
-
-                      {/* Left icon */}
-                      <div className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-                        <BankIcon />
-                      </div>
-
-                      {/* Dropdown chevron (inside select) */}
-                      <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
-                        <ChevronDown className="h-5 w-5" aria-hidden />
-                      </div>
-                    </div>
+                    <Controller
+                      control={control}
+                      name="sourceBank"
+                      render={({ field: { onChange } }) => (
+                        <AccountSelect
+                          className="max-w-lg"
+                          selectedAccount={selectedAccount}
+                          onSelect={(account) => {
+                            setSelectedAccount(account);
+                            onChange(account.name);
+                          }}
+                        />
+                      )}
+                    />
 
                     {errors.sourceBank && (
                       <p className="mt-1 text-xs text-red-600">

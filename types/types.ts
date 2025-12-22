@@ -11,3 +11,11 @@ export type Transaction = {
 };
 
 export type Variant = 'blue' | 'success' | 'pink';
+
+export type Account = {
+  id: number;
+  name: string;
+  balance: string;
+  initials: string;
+  color: string;
+};

@@ -1,10 +1,12 @@
 'use client';
 
-import { useState } from 'react';
-import { ChevronDown, Check, Plus, BanIcon } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { ChevronDown, Check, Plus } from 'lucide-react';
 import { BankIcon } from './ui/icons/BankIcon';
+import { cn } from '@/lib/utils';
+import { Account } from '@/types/types';
 
-const accounts = [
+const accounts: Account[] = [
   {
     id: 1,
     name: 'Bank of America',
@@ -28,12 +30,39 @@ const accounts = [
   },
 ];
 
-export default function AccountSelect() {
+export default function AccountSelect({
+  className,
+  selectedAccount,
+  onSelect,
+}: {
+  className?: string;
+  selectedAccount?: Account;
+  onSelect?: (account: Account) => void;
+}) {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState(accounts[1]);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
+      }
+    }
+
+    if (open) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [open]);
 
   return (
-    <div className="relative w-full">
+    <div ref={containerRef} className={cn('relative w-full', className)}>
       {/* Trigger */}
       <button
         onClick={() => setOpen(!open)}
@@ -42,7 +71,7 @@ export default function AccountSelect() {
         <div className="flex items-center gap-3">
           <BankIcon />
           <span className="text-base font-medium text-gray-800">
-            {selected ? selected.name : 'Select Account'}
+            {selectedAccount ? selectedAccount.name : 'Select Account'}
           </span>
         </div>
         <ChevronDown className="h-5 w-5 text-gray-500" />
@@ -55,7 +84,7 @@ export default function AccountSelect() {
             <div key={account.id}>
               <button
                 onClick={() => {
-                  setSelected(account);
+                  onSelect?.(account);
                   setOpen(false);
                 }}
                 className="flex w-full items-center justify-between px-5 py-4 hover:bg-gray-50"
@@ -76,7 +105,7 @@ export default function AccountSelect() {
                   </div>
                 </div>
 
-                {selected.id === account.id && (
+                {selectedAccount?.id === account.id && (
                   <Check className="h-6 w-6 text-blue-600" />
                 )}
               </button>
