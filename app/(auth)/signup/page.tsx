@@ -34,8 +34,8 @@ export default function SignupPage() {
     Object.keys(errors).length > 0;
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen">
-      <div className="flex flex-col gap-5 w-full max-w-lg">
+    <div className="flex flex-col justify-center items-center min-h-screen w-full max-w-110 py-5">
+      <div className="flex flex-col gap-5 w-full">
         <Logo />
 
         <div className="flex flex-col gap-4">
