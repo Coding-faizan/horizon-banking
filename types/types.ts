@@ -9,3 +9,5 @@ export type Transaction = {
   initials?: string;
   highlight?: boolean;
 };
+
+export type Variant = 'blue' | 'success' | 'pink';

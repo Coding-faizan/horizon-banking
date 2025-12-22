@@ -1,6 +1,5 @@
+import { Variant } from '@/types/types';
 import { LucideIcon } from 'lucide-react';
-
-type Variant = 'blue' | 'success' | 'pink';
 
 const VARIANTS: Record<
   Variant,

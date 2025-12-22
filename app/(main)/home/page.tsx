@@ -3,10 +3,11 @@ import { BankCard } from '@/app/components/BankCard';
 import { BudgetCard } from '@/app/components/BudgetCard';
 import { DoughnutChart } from '@/app/components/DoughnutChart';
 import TransactionsTable from '@/app/components/TransactionsTable';
-import { CoinsIcon } from '@/app/components/ui/icons/CoinsIcon';
 import TabBar from '@/app/components/ui/TabBar';
+import { budgets } from '@/mocks/budgets.mocks';
 import { transactions } from '@/mocks/transactions.mocks';
-import { Handbag, Monitor, MoreVerticalIcon, PlusIcon } from 'lucide-react';
+import { Variant } from '@/types/types';
+import { MoreVerticalIcon, PlusIcon } from 'lucide-react';
 import Image from 'next/image';
 
 export default function HomePage() {
@@ -75,6 +76,7 @@ export default function HomePage() {
           <TransactionsTable transactions={transactions.slice(0, 6)} />
         </div>
       </div>
+
       {/* Profile Section */}
       <div className="relative w-full xl:w-sm border-l border-gray-200 h-screen pl-2 xl:pl-0">
         <div className="w-full h-32 relative">
@@ -125,27 +127,16 @@ export default function HomePage() {
               <MoreVerticalIcon className="text-gray-400" />
             </div>
 
-            <BudgetCard
-              title="Subscriptions"
-              amountLeft="$25 left"
-              progress={60}
-              icon={Monitor}
-              variant="blue"
-            />
-            <BudgetCard
-              title="Food and booze"
-              amountLeft="$150 left"
-              progress={40}
-              icon={Handbag}
-              variant="pink"
-            />
-            <BudgetCard
-              title="Savings"
-              amountLeft="$500 left"
-              progress={80}
-              icon={CoinsIcon}
-              variant="success"
-            />
+            {budgets.map((budget, index) => (
+              <BudgetCard
+                key={index}
+                title={budget.title}
+                amountLeft={budget.amountLeft}
+                progress={budget.progress}
+                icon={budget.icon}
+                variant={budget.variant as Variant}
+              />
+            ))}
           </div>
         </div>
       </div>
