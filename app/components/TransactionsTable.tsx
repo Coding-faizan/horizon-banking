@@ -1,13 +1,9 @@
 import { cn } from '@/lib/utils';
 import { Transaction } from '@/types/types';
 import Image from 'next/image';
+import { CategoryPill } from './CategoryPill';
+import { StatusPill } from './StatusPill';
 
-/**
- * TransactionTable
- *
- * A clean, banking-style transactions table matching the provided design.
- * Tailwind-only, no animation libs.
- */
 export default function TransactionTable({
   transactions,
 }: {
@@ -30,7 +26,7 @@ export default function TransactionTable({
             <tr
               key={tx.id}
               className={cn(
-                `border-b last:border-b-0 border-gray-200 `,
+                'border-b last:border-b-0 border-gray-200',
                 tx.status === 'declined' && 'bg-error-25',
                 tx.status === 'success' && 'bg-success-25',
                 tx.status === 'processing' && 'bg-white'
@@ -80,68 +76,3 @@ export default function TransactionTable({
     </div>
   );
 }
-
-function StatusPill({
-  status,
-}: {
-  status: 'processing' | 'success' | 'declined';
-}) {
-  const styles = {
-    processing: 'bg-gray-100 text-gray-700',
-    success: 'bg-green-100 text-green-700',
-    declined: 'bg-error-50 text-error-700',
-  };
-
-  return (
-    <span
-      className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-medium ${styles[status]}`}
-    >
-      <span className="h-2 w-2 rounded-full bg-current" />
-      {capitalize(status)}
-    </span>
-  );
-}
-
-function CategoryPill({
-  category,
-}: {
-  category: 'subscriptions' | 'deposit' | 'income' | 'groceries' | 'food';
-}) {
-  const colors = {
-    subscriptions: 'bg-blue-25 border-blue-600 text-blue-700',
-    deposit: 'bg-success-25 border-success-600 text-success-700',
-    income: 'bg-success-25 border-success-600 text-success-700',
-    groceries: 'bg-indigo-25 border-indigo-500 text-indigo-600',
-    food: 'bg-pink-25 border-pink-600 text-pink-700',
-  };
-
-  return (
-    <span
-      className={`inline-flex items-center gap-2 rounded-full border-[1.5px] px-3 py-1 text-sm font-medium ${colors[category]}`}
-    >
-      <span className="h-2 w-2 rounded-full bg-current" />
-      {capitalize(category)}
-    </span>
-  );
-}
-
-function capitalize(str: string) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
-/* Example usage:
-
-const transactions = [
-  {
-    id: 1,
-    name: "Spotify",
-    amount: -15,
-    status: "processing",
-    date: "Wed 1:00pm",
-    category: "subscriptions",
-    avatar: "/spotify.png",
-  },
-];
-
-<TransactionTable transactions={transactions} />
-*/
