@@ -18,21 +18,21 @@ export function Input({
   const inputId = id ?? React.useId();
 
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-1 w-full max-w-lg">
       {label && (
-        <label htmlFor={inputId} className="text-sm font-medium">
+        <label htmlFor={inputId} className="text-sm font-medium w-full">
           {label}
         </label>
       )}
 
-      <div className="relative">
+      <div className="relative w-full">
         {icon && (
           <div className="absolute left-3 top-1/2 -translate-y-1/2">{icon}</div>
         )}
         <input
           id={inputId}
           className={cn(
-            'rounded-lg pr-2.5 py-2.5 pl-2.5 text-sm',
+            'w-full rounded-lg pr-2.5 py-2.5 pl-2.5 text-sm',
             'input-border rounded-lg',
             'focus:outline-none focus:ring-1 focus:ring-blue-500',
             'disabled:opacity-50 disabled:cursor-not-allowed',

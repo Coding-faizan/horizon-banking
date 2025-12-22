@@ -2,6 +2,7 @@
 
 import { Divider } from '@/app/components/Divider';
 import { Button } from '@/app/components/ui/Button';
+import { BankIcon } from '@/app/components/ui/icons/BankIcon';
 import { Input } from '@/app/components/ui/Input';
 import { Building2, ChevronDown, MoreVertical } from 'lucide-react';
 import { useForm } from 'react-hook-form';
@@ -26,15 +27,8 @@ export default function PaymentTransferPage() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<TransferForm>({
-    defaultValues: {
-      sourceBank: '',
-      note: 'Dear John,\n\nI hope this message finds you well. I am transferring $100 to your account for fun. Please confirm once you receive it.',
-      email: 'john@gmail.com',
-      accountNumber: '',
-      amount: '40000',
-    },
-  });
+    watch,
+  } = useForm<TransferForm>({ mode: 'onBlur' });
 
   const onSubmit = (data: TransferForm) => {
     // Replace with API call/integration when ready
@@ -75,10 +69,10 @@ export default function PaymentTransferPage() {
               <Divider />
 
               <div className="space-y-6">
-                <div className="grid gap-3 sm:grid-cols-3 sm:items-start">
+                <div className="flex flex-col lg:flex-row gap-3">
                   <label
                     htmlFor="sourceBank"
-                    className="text-sm font-semibold text-gray-900"
+                    className="text-sm font-semibold text-gray-900 flex-1"
                   >
                     Select Source Bank
                     <span className="mt-1 block text-xs font-normal text-gray-600">
@@ -86,14 +80,14 @@ export default function PaymentTransferPage() {
                     </span>
                   </label>
 
-                  <div className="sm:col-span-2">
-                    <div className="relative">
+                  <div className="w-full flex-2">
+                    <div className="relative max-w-lg">
                       <select
                         id="sourceBank"
                         {...register('sourceBank', {
                           required: 'Please select a source bank',
                         })}
-                        className="input-border w-full appearance-none rounded-lg bg-white px-3 py-3 pr-10 text-sm text-gray-900 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        className="w-full appearance-none rounded-lg bg-white pl-10 pr-10 py-3 text-sm text-gray-900 focus:outline-none focus:ring-1 focus:ring-blue-500 border border-gray-200"
                       >
                         {bankOptions.map((option) => (
                           <option key={option.value} value={option.value}>
@@ -101,13 +95,18 @@ export default function PaymentTransferPage() {
                           </option>
                         ))}
                       </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
+
+                      {/* Left icon */}
+                      <div className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                        <BankIcon />
+                      </div>
+
+                      {/* Dropdown chevron (inside select) */}
+                      <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
                         <ChevronDown className="h-5 w-5" aria-hidden />
                       </div>
-                      <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-gray-400">
-                        <Building2 className="h-5 w-5" aria-hidden />
-                      </div>
                     </div>
+
                     {errors.sourceBank && (
                       <p className="mt-1 text-xs text-red-600">
                         {errors.sourceBank.message}
@@ -118,10 +117,10 @@ export default function PaymentTransferPage() {
 
                 <Divider />
 
-                <div className="grid gap-3 sm:grid-cols-3 sm:items-start">
+                <div className="flex flex-col lg:flex-row gap-3">
                   <label
                     htmlFor="note"
-                    className="text-sm font-semibold text-gray-900"
+                    className="text-sm font-semibold text-gray-900 flex-1"
                   >
                     Transfer Note (Optional)
                     <span className="mt-1 block text-xs font-normal text-gray-600">
@@ -129,12 +128,12 @@ export default function PaymentTransferPage() {
                       related to the transfer
                     </span>
                   </label>
-                  <div className="sm:col-span-2">
+                  <div className="w-full flex-2">
                     <textarea
                       id="note"
                       rows={6}
                       {...register('note')}
-                      className="input-border w-full rounded-xl bg-white p-3 text-sm text-gray-900 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                      className="input-border w-full max-w-lg rounded-xl bg-white p-3 text-sm text-gray-900 focus:outline-none focus:ring-1 focus:ring-blue-500"
                     />
                   </div>
                 </div>
@@ -159,18 +158,17 @@ export default function PaymentTransferPage() {
               <Divider />
 
               <div className="space-y-6">
-                <div className="grid gap-3 sm:grid-cols-3 sm:items-start">
+                <div className="flex flex-col lg:flex-row gap-3">
                   <label
                     htmlFor="email"
-                    className="text-sm font-semibold text-gray-900"
+                    className="text-sm font-semibold text-gray-900 flex-1"
                   >
                     Recipient's Email Address
                   </label>
-                  <div className="sm:col-span-2">
+                  <div className="w-full flex-2">
                     <Input
                       id="email"
                       type="email"
-                      className="w-full"
                       placeholder="john@gmail.com"
                       error={errors.email?.message}
                       {...register('email', { required: 'Email is required' })}
@@ -179,14 +177,14 @@ export default function PaymentTransferPage() {
                 </div>
 
                 <Divider />
-                <div className="grid gap-3 sm:grid-cols-3 sm:items-start">
+                <div className="flex flex-col lg:flex-row gap-3">
                   <label
                     htmlFor="accountNumber"
-                    className="text-sm font-semibold text-gray-900"
+                    className="text-sm font-semibold text-gray-900 flex-1"
                   >
                     Recipient's Bank Account Number
                   </label>
-                  <div className="sm:col-span-2">
+                  <div className="w-full flex-2">
                     <Input
                       id="accountNumber"
                       type="text"
@@ -202,14 +200,14 @@ export default function PaymentTransferPage() {
 
                 <Divider />
 
-                <div className="grid gap-3 sm:grid-cols-3 sm:items-start">
+                <div className="flex flex-col lg:flex-row gap-3">
                   <label
                     htmlFor="amount"
-                    className="text-sm font-semibold text-gray-900"
+                    className="text-sm font-semibold text-gray-900 flex-1"
                   >
                     Amount
                   </label>
-                  <div className="sm:col-span-2">
+                  <div className="w-full flex-2">
                     <Input
                       id="amount"
                       type="number"
@@ -228,8 +226,18 @@ export default function PaymentTransferPage() {
               <Divider />
             </section>
 
-            <div className="pt-6">
-              <Button type="submit" fullWidth className="h-12 text-base">
+            <div className="pt-6 max-w-4xl">
+              <Button
+                disabled={
+                  !watch('email') ||
+                  !watch('accountNumber') ||
+                  !watch('amount') ||
+                  !watch('sourceBank')
+                }
+                type="submit"
+                fullWidth
+                className="h-12 text-base"
+              >
                 Transfer Funds
               </Button>
             </div>
