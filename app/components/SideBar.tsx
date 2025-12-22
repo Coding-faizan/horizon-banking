@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 import { Logo } from './Logo';
 import { Input } from './ui/Input';
@@ -18,6 +18,8 @@ import { ConnectCardIcon } from './ui/icons/ConnectCardIcon';
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const router = useRouter();
+
   const [open, setOpen] = useState(false);
 
   return (
@@ -130,7 +132,10 @@ export default function Sidebar() {
             <p className="font-semibold text-sm">Adrian Hajdin</p>
             <p className="text-sm text-gray-600">adrian@jsmastery.pro</p>
           </div>
-          <LogOutIcon className="text-gray-500" />
+          <LogOutIcon
+            onClick={() => router.replace(routes.login)}
+            className="text-gray-500"
+          />
         </div>
       </aside>
     </>

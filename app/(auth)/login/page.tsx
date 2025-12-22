@@ -9,8 +9,11 @@ import { Input } from '@/app/components/ui/Input';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { LoginFormValues, loginSchema } from '@/lib/schemas/validationSchemas';
 import { routes } from '@/lib/routes';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -22,7 +25,7 @@ export default function LoginPage() {
   });
 
   const onSubmit = async (data: LoginFormValues) => {
-    console.log('Login data:', data);
+    router.replace(routes.home);
   };
 
   return (
