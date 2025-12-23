@@ -59,16 +59,17 @@ export const BankCard = ({
           <div
             className={cn(
               'relative',
-              cardType === 'visa' ? 'w-8 h-3' : 'w-7 h-4'
+              cardType === 'visa' ? 'w-8 h-2.5' : 'w-7 h-4'
             )}
-          ></div>
-          <Image
-            src={`/images/${cardType}.png`}
-            alt="Card Chip"
-            fill
-            sizes={cardType === 'visa' ? '32px' : '28px'}
-            className="object-contain"
-          />
+          >
+            <Image
+              src={`/images/${cardType}.svg`}
+              alt="Card Chip"
+              fill
+              sizes={cardType === 'visa' ? '32px' : '28px'}
+              className="object-contain"
+            />
+          </div>
         </div>
       </div>
 
