@@ -3,17 +3,6 @@
 import { cn } from '@/lib/utils';
 import { useState } from 'react';
 
-/**
- * Reusable TabBar component (underline style)
- *
- * Matches a simple bank-style tab bar with an active underline.
- * No animation libraries required.
- *
- * Props:
- * - tabs: Array<{ id: string; label: string }>
- * - defaultTab?: string
- * - onChange?: (id: string) => void
- */
 export default function TabBar({
   tabs,
   defaultTab,
@@ -42,7 +31,7 @@ export default function TabBar({
               onClick={() => handleChange(tab.id)}
               className={cn(
                 'relative pb-3 text-base font-semibold text-gray-500',
-                isActive && 'text-primary',
+                isActive && 'text-primary'
               )}
             >
               {tab.label}
@@ -57,18 +46,3 @@ export default function TabBar({
     </div>
   );
 }
-
-/* Example usage:
-
-const tabs = [
-  { id: "chase", label: "Chase Bank" },
-  { id: "boa", label: "Bank of America" },
-  { id: "fpb", label: "First Platypus Bank" },
-];
-
-<TabBar
-  tabs={tabs}
-  defaultTab="chase"
-  onChange={(id) => console.log(id)}
-/>
-*/
