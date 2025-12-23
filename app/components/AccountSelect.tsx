@@ -16,7 +16,7 @@ export default function AccountSelect({
   selectedAccount?: Account;
   onSelect?: (account: Account) => void;
 }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

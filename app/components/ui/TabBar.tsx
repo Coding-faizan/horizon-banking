@@ -12,7 +12,7 @@ export default function TabBar({
   defaultTab?: string;
   onChange?: (id: string) => void;
 }) {
-  const [active, setActive] = useState(defaultTab ?? tabs[0]?.id);
+  const [active, setActive] = useState<string>(defaultTab ?? tabs[0]?.id);
 
   const handleChange = (id: string) => {
     setActive(id);
