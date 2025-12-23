@@ -1,20 +1,21 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
+import { LogOutIcon, MenuIcon, XIcon, SearchIcon } from 'lucide-react';
+
+import { routes } from '@/lib/routes';
+import { cn } from '@/lib/utils';
 
 import { Logo } from './Logo';
 import { Input } from './ui/Input';
-import { LogOutIcon, MenuIcon, XIcon, SearchIcon } from 'lucide-react';
-import { routes } from '@/lib/routes';
-import { cn } from '@/lib/utils';
 import { HomeIcon } from './ui/icons/HomeIcon';
 import { DollarIcon } from './ui/icons/DolllarIcon';
 import { HistoryIcon } from './ui/icons/HistoryIcon';
 import { DollarSendIcon } from './ui/icons/DollarSendIcon';
 import { ConnectCardIcon } from './ui/icons/ConnectCardIcon';
+import { NavLink } from './NavLink';
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -141,27 +142,3 @@ export default function Sidebar() {
     </>
   );
 }
-
-type NavLinkProps = {
-  href: string;
-  label: string;
-  icon: React.ReactNode;
-  pathname: string;
-};
-
-const NavLink = ({ href, label, icon, pathname }: NavLinkProps) => {
-  const isActive = pathname === href;
-
-  return (
-    <Link
-      href={href}
-      className={cn(
-        'flex items-center gap-2 text-gray-700 font-semibold text-base px-3 py-3 rounded-md',
-        isActive && 'bg-primary text-white'
-      )}
-    >
-      {icon}
-      {label}
-    </Link>
-  );
-};
