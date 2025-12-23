@@ -1,14 +1,17 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import Link from 'next/link';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 
-import { Button } from "@/app/components/ui/Button";
-import { Input } from "@/app/components/ui/Input";
-import { SignupFormValues, signupSchema } from "@/lib/schemas/auth";
-import { Logo } from "@/app/components/Logo";
-import { routes } from "@/lib/routes";
+import { Button } from '@/app/components/ui/Button';
+import { Input } from '@/app/components/ui/Input';
+import {
+  SignupFormValues,
+  signupSchema,
+} from '@/lib/schemas/validationSchemas';
+import { Logo } from '@/app/components/Logo';
+import { routes } from '@/lib/routes';
 
 export default function SignupPage() {
   const {
@@ -18,11 +21,11 @@ export default function SignupPage() {
     watch,
   } = useForm<SignupFormValues>({
     resolver: zodResolver(signupSchema),
-    mode: "onChange",
+    mode: 'onChange',
   });
 
   const onSubmit = async (data: SignupFormValues) => {
-    console.log("Signup data:", data);
+    console.log('Signup data:', data);
   };
 
   const isDisabled =
@@ -31,8 +34,8 @@ export default function SignupPage() {
     Object.keys(errors).length > 0;
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen">
-      <div className="flex flex-col gap-5 w-full max-w-lg">
+    <div className="flex flex-col justify-center items-center min-h-screen w-full max-w-110 py-5">
+      <div className="flex flex-col gap-5 w-full">
         <Logo />
 
         <div className="flex flex-col gap-4">
@@ -49,13 +52,13 @@ export default function SignupPage() {
               <Input
                 label="First name"
                 placeholder="ex: John"
-                {...register("firstName")}
+                {...register('firstName')}
                 error={errors.firstName?.message}
               />
               <Input
                 label="Last name"
                 placeholder="ex: Doe"
-                {...register("lastName")}
+                {...register('lastName')}
                 error={errors.lastName?.message}
               />
             </div>
@@ -64,7 +67,7 @@ export default function SignupPage() {
             <Input
               label="Address"
               placeholder="Enter your specific address"
-              {...register("address")}
+              {...register('address')}
               error={errors.address?.message}
             />
 
@@ -73,13 +76,13 @@ export default function SignupPage() {
               <Input
                 label="State"
                 placeholder="ex: NY"
-                {...register("state")}
+                {...register('state')}
                 error={errors.state?.message}
               />
               <Input
                 label="Postal code"
                 placeholder="11101"
-                {...register("postalCode")}
+                {...register('postalCode')}
                 error={errors.postalCode?.message}
               />
             </div>
@@ -89,13 +92,13 @@ export default function SignupPage() {
               <Input
                 label="Date of birth"
                 type="date"
-                {...register("dateOfBirth")}
+                {...register('dateOfBirth')}
                 error={errors.dateOfBirth?.message}
               />
               <Input
                 label="SSN"
                 placeholder="ex: 1234"
-                {...register("ssn")}
+                {...register('ssn')}
                 error={errors.ssn?.message}
               />
             </div>
@@ -105,7 +108,7 @@ export default function SignupPage() {
               label="Email"
               type="email"
               placeholder="Enter your email"
-              {...register("email")}
+              {...register('email')}
               error={errors.email?.message}
             />
 
@@ -114,13 +117,13 @@ export default function SignupPage() {
               label="Password"
               type="password"
               placeholder="Enter your password"
-              {...register("password")}
+              {...register('password')}
               error={errors.password?.message}
             />
           </div>
 
           <Button type="submit" className="w-full mt-6" disabled={isDisabled}>
-            {isSubmitting ? "Creating account..." : "Sign up"}
+            {isSubmitting ? 'Creating account...' : 'Sign up'}
           </Button>
 
           <div className="flex justify-center mt-6 gap-1">

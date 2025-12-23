@@ -1,16 +1,19 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useForm } from "react-hook-form";
+import Link from 'next/link';
+import { useForm } from 'react-hook-form';
 
-import { Logo } from "@/app/components/Logo";
-import { Button } from "@/app/components/ui/Button";
-import { Input } from "@/app/components/ui/Input";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { LoginFormValues, loginSchema } from "@/lib/schemas/auth";
-import { routes } from "@/lib/routes";
+import { Logo } from '@/app/components/Logo';
+import { Button } from '@/app/components/ui/Button';
+import { Input } from '@/app/components/ui/Input';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { LoginFormValues, loginSchema } from '@/lib/schemas/validationSchemas';
+import { routes } from '@/lib/routes';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -18,11 +21,11 @@ export default function LoginPage() {
     watch,
   } = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
-    mode: "onChange",
+    mode: 'onChange',
   });
 
   const onSubmit = async (data: LoginFormValues) => {
-    console.log("Login data:", data);
+    router.replace(routes.home);
   };
 
   return (
@@ -43,7 +46,7 @@ export default function LoginPage() {
               label="Email"
               type="email"
               placeholder="Enter your email"
-              {...register("email")}
+              {...register('email')}
               error={errors.email?.message}
             />
 
@@ -51,7 +54,7 @@ export default function LoginPage() {
               label="Password"
               type="password"
               placeholder="Enter your password"
-              {...register("password")}
+              {...register('password')}
               error={errors.password?.message}
             />
           </div>
@@ -61,13 +64,13 @@ export default function LoginPage() {
             className="w-full mt-5"
             disabled={
               isSubmitting ||
-              !watch("email") ||
-              !watch("password") ||
+              !watch('email') ||
+              !watch('password') ||
               errors.email !== undefined ||
               errors.password !== undefined
             }
           >
-            {isSubmitting ? "Logging in..." : "Login"}
+            {isSubmitting ? 'Logging in...' : 'Login'}
           </Button>
 
           <div className="flex justify-center items-center mt-6 gap-1">
