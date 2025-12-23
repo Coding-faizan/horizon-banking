@@ -18,8 +18,8 @@ export function BankAccountCard() {
         </div>
 
         {/* Right side */}
-        <div className="rounded-lg border border-white/40 bg-white/20 p-4  backdrop-blur-sm">
-          <p className="text-sm text-white/90 font-medium">Current Balance</p>
+        <div className="rounded-lg  border border-white/50 bg-white/30 p-4  backdrop-blur-xl">
+          <p className="text-sm  font-medium">Current Balance</p>
           <p className="mt-1 text-2xl font-semibold">$41,382.80</p>
         </div>
       </div>
