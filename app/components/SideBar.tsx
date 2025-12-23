@@ -10,11 +10,13 @@ import { cn } from '@/lib/utils';
 
 import { Logo } from './Logo';
 import { Input } from './ui/Input';
-import { HomeIcon } from './ui/icons/HomeIcon';
-import { DollarIcon } from './ui/icons/DolllarIcon';
-import { HistoryIcon } from './ui/icons/HistoryIcon';
-import { DollarSendIcon } from './ui/icons/DollarSendIcon';
-import { ConnectCardIcon } from './ui/icons/ConnectCardIcon';
+import {
+  HomeIcon,
+  DollarIcon,
+  HistoryIcon,
+  DollarSendIcon,
+  ConnectCardIcon,
+} from './ui/icons';
 import { NavLink } from './NavLink';
 
 export default function Sidebar() {
