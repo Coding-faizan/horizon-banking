@@ -12,7 +12,7 @@ const isAtLeast18 = (date: Date) => {
   const eighteenYearsAgo = new Date(
     today.getFullYear() - 18,
     today.getMonth(),
-    today.getDate()
+    today.getDate(),
   );
 
   return date <= eighteenYearsAgo;

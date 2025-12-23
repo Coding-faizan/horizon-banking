@@ -16,7 +16,7 @@ export const DoughnutChart = ({
   if (data && backgroundColor) {
     if (data.length !== backgroundColor.length) {
       throw new Error(
-        'Data and backgroundColor arrays must have the same length'
+        'Data and backgroundColor arrays must have the same length',
       );
     }
   }

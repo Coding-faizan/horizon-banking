@@ -29,7 +29,7 @@ export default function TransactionTable({
                 'border-b last:border-b-0 border-gray-200',
                 tx.status === 'declined' && 'bg-error-25',
                 tx.status === 'success' && 'bg-success-25',
-                tx.status === 'processing' && 'bg-white'
+                tx.status === 'processing' && 'bg-white',
               )}
             >
               <td className="px-6 py-5">
@@ -54,7 +54,7 @@ export default function TransactionTable({
               <td
                 className={cn(
                   `px-6 py-5 font-medium`,
-                  tx.amount > 0 ? 'text-success-600' : 'text-red-500'
+                  tx.amount > 0 ? 'text-success-600' : 'text-red-500',
                 )}
               >
                 {tx.amount > 0 ? '+' : '-'}${Math.abs(tx.amount).toFixed(2)}

@@ -42,7 +42,7 @@ export default function TabBar({
               onClick={() => handleChange(tab.id)}
               className={cn(
                 'relative pb-3 text-base font-semibold text-gray-500',
-                isActive && 'text-primary'
+                isActive && 'text-primary',
               )}
             >
               {tab.label}

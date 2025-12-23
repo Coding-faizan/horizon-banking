@@ -19,7 +19,7 @@ const Tabs = ({ children }: { children: React.ReactNode }) => {
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     index: number,
-    cb = () => {}
+    cb = () => {},
   ) => {
     e.preventDefault();
 

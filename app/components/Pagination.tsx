@@ -35,12 +35,12 @@ export function Pagination({
                 onClick={() => onPageChange && onPageChange(page)}
                 className={cn(
                   'size-10 rounded-lg flex items-center justify-center text-gray-800 font-medium text-xs',
-                  page === currentPage && 'bg-gray-50'
+                  page === currentPage && 'bg-gray-50',
                 )}
               >
                 {page}
               </button>
-            )
+            ),
           )}
       </div>
 

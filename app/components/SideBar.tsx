@@ -43,7 +43,7 @@ export default function Sidebar() {
       <aside
         className={cn(
           'fixed md:static z-50 top-0 left-0 flex flex-col justify-between w-72 min-h-screen border-r border-gray-200 bg-white pt-4 transition-transform',
-          open ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
+          open ? 'translate-x-0' : '-translate-x-full md:translate-x-0',
         )}
       >
         <div>
@@ -157,7 +157,7 @@ const NavLink = ({ href, label, icon, pathname }: NavLinkProps) => {
       href={href}
       className={cn(
         'flex items-center gap-2 text-gray-700 font-semibold text-base px-3 py-3 rounded-md',
-        isActive && 'bg-primary text-white'
+        isActive && 'bg-primary text-white',
       )}
     >
       {icon}

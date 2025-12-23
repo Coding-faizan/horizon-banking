@@ -24,7 +24,7 @@ export default function PaymentTransferPage() {
   });
 
   const [selectedAccount, setSelectedAccount] = useState<Account | undefined>(
-    undefined
+    undefined,
   );
 
   const onSubmit = (data: TransferForm) => {

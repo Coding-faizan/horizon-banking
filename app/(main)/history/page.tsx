@@ -11,7 +11,7 @@ import { useState } from 'react';
 export default function HistoryPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedAccount, setSelectedAccount] = useState<Account | undefined>(
-    undefined
+    undefined,
   );
 
   const handlePageChange = (page: number) => {
@@ -56,7 +56,7 @@ export default function HistoryPage() {
           <TransactionTable
             transactions={transactions.slice(
               (currentPage - 1) * 6,
-              currentPage * 6
+              currentPage * 6,
             )}
           />
         </div>

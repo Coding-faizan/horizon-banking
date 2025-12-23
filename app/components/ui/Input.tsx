@@ -37,7 +37,7 @@ export function Input({
             'focus:outline-none focus:ring-1 focus:ring-blue-500',
             'disabled:opacity-50 disabled:cursor-not-allowed',
             icon && 'pl-9',
-            error && 'border-red-500 focus:ring-red-500'
+            error && 'border-red-500 focus:ring-red-500',
           )}
           {...props}
         />
