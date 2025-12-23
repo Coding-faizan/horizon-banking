@@ -5,30 +5,7 @@ import { ChevronDown, Check, Plus } from 'lucide-react';
 import { BankIcon } from './ui/icons/BankIcon';
 import { cn } from '@/lib/utils';
 import { Account } from '@/types/types';
-
-const accounts: Account[] = [
-  {
-    id: 1,
-    name: 'Bank of America',
-    balance: '$2,588.12',
-    initials: 'BA',
-    color: 'bg-purple-500',
-  },
-  {
-    id: 2,
-    name: 'Chase Growth Savings Account',
-    balance: '$2,588.12',
-    initials: 'CG',
-    color: 'bg-blue-600',
-  },
-  {
-    id: 3,
-    name: 'First Platypus Bank',
-    balance: '$2,588.12',
-    initials: 'FB',
-    color: 'bg-green-600',
-  },
-];
+import { accounts } from '@/mocks/account.mocks';
 
 export default function AccountSelect({
   className,
