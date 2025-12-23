@@ -2,6 +2,7 @@ import { Copy, Nfc } from 'lucide-react';
 import Image from 'next/image';
 import { BankCardLines } from './BankCardLines';
 import { ProgressBar } from './ProgressBar';
+import { cn } from '@/lib/utils';
 
 export interface BankCardProps {
   bankName: string;
@@ -66,11 +67,18 @@ export const BankCard = ({
         )}
 
         <div className="absolute top-36 right-5 flex justify-center items-center bg-white/10 p-2 rounded-sm">
+          <div
+            className={cn(
+              'relative',
+              cardType === 'visa' ? 'w-8 h-3' : 'w-7 h-4'
+            )}
+          ></div>
           <Image
             src={`/images/${cardType}.png`}
             alt="Card Chip"
-            width={cardType === 'visa' ? 32 : 28}
-            height={cardType === 'visa' ? 12 : 18}
+            fill
+            sizes={cardType === 'visa' ? '32px' : '28px'}
+            className="object-contain"
           />
         </div>
       </div>

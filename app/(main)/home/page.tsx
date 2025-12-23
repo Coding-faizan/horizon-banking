@@ -78,12 +78,14 @@ export default function HomePage() {
       </div>
 
       {/* Profile Section */}
-      <div className="relative w-full xl:w-sm border-l border-gray-200 h-screen pl-2 xl:pl-0">
+      <div className="relative w-full xl:w-sm border-l border-gray-200 h-screen">
         <div className="w-full h-32 relative">
           <Image
             src="/images/profile-gradient.png"
             alt="Profile Gradient"
             fill
+            className="object-cover"
+            sizes="(max-width: 1280px) 100vw, 384px"
           />
         </div>
         <div className="absolute left-4 top-22 w-24 h-24 rounded-full p-1 shadow-lg bg-white">
@@ -92,6 +94,7 @@ export default function HomePage() {
             alt="Avatar"
             fill
             className="rounded-full"
+            sizes="96px"
           />
         </div>
         <div className="space-y-8">
