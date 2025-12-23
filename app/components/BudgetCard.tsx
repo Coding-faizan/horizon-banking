@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import { Variant } from '@/types/types';
 import { LucideIcon } from 'lucide-react';
 
@@ -40,7 +41,7 @@ const VARIANTS: Record<
     progressBg: 'bg-pink-100',
     progressFill: 'bg-pink-700',
   },
-};
+} as const;
 
 interface BudgetCardProps {
   title: string;
@@ -60,25 +61,30 @@ export function BudgetCard({
   const colors = VARIANTS[variant];
 
   return (
-    <div className={`flex gap-4 rounded-xl p-4 ${colors.cardBg}`}>
+    <div className={cn('flex gap-4 rounded-xl p-4', colors.cardBg)}>
       <div
-        className={`flex size-10 items-center justify-center rounded-full ${colors.iconBg}`}
+        className={cn(
+          'flex size-10 items-center justify-center rounded-full',
+          colors.iconBg
+        )}
       >
-        <Icon className={`size-5 ${colors.iconText}`} />
+        <Icon className={cn('size-5', colors.iconText)} />
       </div>
 
       <div className="flex flex-1 flex-col gap-2">
         <div className="flex items-center justify-between">
-          <p className={`text-sm font-medium ${colors.titleText}`}>{title}</p>
-          <p className={`text-sm font-semibold ${colors.amountText}`}>
+          <p className={cn('text-sm font-medium', colors.titleText)}>{title}</p>
+          <p className={cn('text-sm font-semibold', colors.amountText)}>
             {amountLeft}
           </p>
         </div>
 
-        <div className={`h-2 w-full rounded-full ${colors.progressBg}`}>
+        <div className={cn('h-2 w-full rounded-full', colors.progressBg)}>
           <div
-            className={`h-2 rounded-full ${colors.progressFill} transition-all`}
-            style={{ width: `${progress}%` }}
+            className={cn(
+              `h-2 rounded-full transition-all w-[${progress}%]`,
+              colors.progressFill
+            )}
           />
         </div>
       </div>

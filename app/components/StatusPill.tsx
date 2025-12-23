@@ -9,7 +9,7 @@ export function StatusPill({
     processing: 'bg-gray-100 text-gray-700',
     success: 'bg-green-100 text-green-700',
     declined: 'bg-error-50 text-error-700',
-  };
+  } as const;
 
   return (
     <span
