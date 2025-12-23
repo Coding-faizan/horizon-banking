@@ -55,7 +55,7 @@ export const BankCard = ({
           <Nfc className="absolute top-5 right-5 size-6" />
         )}
 
-        <div className="absolute top-36 right-5 flex justify-center items-center bg-white/10 p-2 rounded-sm">
+        <div className="absolute top-36 right-5 flex justify-center items-center bg-white/10 w-11.5 h-8 rounded-sm">
           <div
             className={cn(
               'relative',
