@@ -11,7 +11,7 @@ import {
   signupSchema,
 } from '@/lib/schemas/validationSchemas';
 import { Logo } from '@/app/components/Logo';
-import { routes } from '@/lib/routes';
+import { ROUTES } from '@/lib/routes';
 
 export default function SignupPage() {
   const {
@@ -131,7 +131,7 @@ export default function SignupPage() {
               Already have an account?
             </span>
             <Button variant="link" asChild>
-              <Link href={routes.login}>Login</Link>
+              <Link href={ROUTES.login}>Login</Link>
             </Button>
           </div>
         </form>

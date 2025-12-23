@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { LogOutIcon, MenuIcon, XIcon, SearchIcon } from 'lucide-react';
 
-import { routes } from '@/lib/routes';
+import { ROUTES } from '@/lib/routes';
 import { cn } from '@/lib/utils';
 
 import { Logo } from './Logo';
@@ -66,57 +66,57 @@ export default function Sidebar() {
           </div>
           <nav className="px-4 space-y-1">
             <NavLink
-              href={routes.home}
+              href={ROUTES.home}
               label="Home"
               pathname={pathname}
               icon={
                 <HomeIcon
                   size={24}
-                  color={pathname === routes.home ? '#fff' : '#667085'}
+                  color={pathname === ROUTES.home ? '#fff' : '#667085'}
                 />
               }
             />
             <NavLink
-              href={routes.banks}
+              href={ROUTES.banks}
               label="My Banks"
               pathname={pathname}
               icon={
                 <DollarIcon
                   size={24}
-                  color={pathname === routes.banks ? '#fff' : '#667085'}
+                  color={pathname === ROUTES.banks ? '#fff' : '#667085'}
                 />
               }
             />
             <NavLink
-              href={routes.history}
+              href={ROUTES.history}
               label="Transactions History"
               pathname={pathname}
               icon={
                 <HistoryIcon
                   size={24}
-                  color={pathname === routes.history ? '#fff' : '#667085'}
+                  color={pathname === ROUTES.history ? '#fff' : '#667085'}
                 />
               }
             />
             <NavLink
-              href={routes.transfer}
+              href={ROUTES.transfer}
               label="Payment Transfer"
               pathname={pathname}
               icon={
                 <DollarSendIcon
                   size={24}
-                  color={pathname === routes.transfer ? '#fff' : '#667085'}
+                  color={pathname === ROUTES.transfer ? '#fff' : '#667085'}
                 />
               }
             />
             <NavLink
-              href={routes.connect}
+              href={ROUTES.connect}
               label="Connect Bank"
               pathname={pathname}
               icon={
                 <ConnectCardIcon
                   size={24}
-                  color={pathname === routes.connect ? '#fff' : '#667085'}
+                  color={pathname === ROUTES.connect ? '#fff' : '#667085'}
                 />
               }
             />
@@ -136,7 +136,7 @@ export default function Sidebar() {
             <p className="text-sm text-gray-600">adrian@jsmastery.pro</p>
           </div>
           <LogOutIcon
-            onClick={() => router.replace(routes.login)}
+            onClick={() => router.replace(ROUTES.login)}
             className="text-gray-500"
           />
         </div>
