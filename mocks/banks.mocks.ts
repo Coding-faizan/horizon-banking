@@ -1,6 +1,6 @@
-import { BankCardProps } from '@/app/components/BankCard';
+import { TBankCard } from '@/types/types';
 
-export const bankCards: BankCardProps[] = [
+export const DUMMY_BANK_CARDS: TBankCard[] = [
   {
     bankName: 'Chase Bank',
     cardNumber: '**** **** **** 4821',

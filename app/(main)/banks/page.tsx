@@ -1,5 +1,5 @@
 import { BankCard } from '@/app/components/BankCard';
-import { bankCards } from '@/mocks/banks.mocks';
+import { DUMMY_BANK_CARDS } from '@/mocks/banks.mocks';
 
 export default function BanksPage() {
   return (
@@ -13,7 +13,7 @@ export default function BanksPage() {
 
       <div className="space-y-5">
         <div className="flex flex-wrap gap-10">
-          {bankCards.map((card, index) => (
+          {DUMMY_BANK_CARDS.map((card, index) => (
             <div key={index}>
               <BankCard {...card} isCopyable={true} />
             </div>

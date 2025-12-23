@@ -1,10 +1,7 @@
 import { capitalize } from '@/lib/utils';
+import { TransactionCategory } from '@/types/types';
 
-export function CategoryPill({
-  category,
-}: {
-  category: 'subscriptions' | 'deposit' | 'income' | 'groceries' | 'food';
-}) {
+export function CategoryPill({ category }: { category: TransactionCategory }) {
   const colors = {
     subscriptions: 'bg-blue-25 border-blue-600 text-blue-700',
     deposit: 'bg-success-25 border-success-600 text-success-700',

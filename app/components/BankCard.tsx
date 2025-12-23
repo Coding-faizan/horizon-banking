@@ -3,18 +3,7 @@ import Image from 'next/image';
 import { BankCardLines } from './BankCardLines';
 import { ProgressBar } from './ProgressBar';
 import { cn } from '@/lib/utils';
-
-export interface BankCardProps {
-  bankName: string;
-  cardNumber: string;
-  cardHolder: string;
-  expiryDate: string;
-  cardType: 'visa' | 'mastercard';
-  variant: 'blue' | 'purple';
-  isCopyable?: boolean;
-  spendingLimit?: number;
-  spendingUsed?: number;
-}
+import { TBankCard } from '@/types/types';
 
 export const BankCard = ({
   bankName,
@@ -26,7 +15,7 @@ export const BankCard = ({
   isCopyable = false,
   spendingLimit,
   spendingUsed,
-}: BankCardProps) => {
+}: TBankCard) => {
   const variantClasses = {
     blue: 'bg-gradient-to-r from-blue-600 to-blue-400',
     purple: 'bg-gradient-to-r from-purple-600 to-purple-600',
