@@ -46,7 +46,7 @@ export default function AccountSelect({
         className="flex w-full items-center justify-between rounded-lg border border-gray-300 bg-white px-4 py-2.5 shadow-xs text-left"
       >
         <div className="flex items-center gap-3">
-          <BankIcon />
+          <BankIcon className="w-5.5 h-4" />
           <span className="text-base font-medium text-gray-800">
             {selectedAccount ? selectedAccount.name : 'Select Account'}
           </span>

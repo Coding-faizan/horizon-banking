@@ -1,19 +1,12 @@
 import * as React from 'react';
 import { cn } from '@/lib/utils';
 
-interface CoinsIconProps extends React.SVGProps<SVGSVGElement> {
-  size?: number;
-}
-
 export const CoinsIcon = ({
-  size = 20,
   className,
   ...props
-}: CoinsIconProps) => {
+}: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
-      width={size}
-      height={size}
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

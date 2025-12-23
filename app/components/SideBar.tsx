@@ -71,8 +71,8 @@ export default function Sidebar() {
               pathname={pathname}
               icon={
                 <HomeIcon
-                  size={24}
                   color={pathname === ROUTES.home ? '#fff' : '#667085'}
+                  className="size-6"
                 />
               }
             />
@@ -82,8 +82,8 @@ export default function Sidebar() {
               pathname={pathname}
               icon={
                 <DollarIcon
-                  size={24}
                   color={pathname === ROUTES.banks ? '#fff' : '#667085'}
+                  className="size-6"
                 />
               }
             />
@@ -93,8 +93,8 @@ export default function Sidebar() {
               pathname={pathname}
               icon={
                 <HistoryIcon
-                  size={24}
                   color={pathname === ROUTES.history ? '#fff' : '#667085'}
+                  className="size-6"
                 />
               }
             />
@@ -104,8 +104,8 @@ export default function Sidebar() {
               pathname={pathname}
               icon={
                 <DollarSendIcon
-                  size={24}
                   color={pathname === ROUTES.transfer ? '#fff' : '#667085'}
+                  className="size-6"
                 />
               }
             />
@@ -115,8 +115,8 @@ export default function Sidebar() {
               pathname={pathname}
               icon={
                 <ConnectCardIcon
-                  size={24}
                   color={pathname === ROUTES.connect ? '#fff' : '#667085'}
+                  className="size-6"
                 />
               }
             />
