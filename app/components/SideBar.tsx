@@ -125,7 +125,7 @@ export default function Sidebar() {
 
         <div className="flex items-center gap-3 p-4 border-t border-gray-200">
           <Image
-            src="/images/avatar.svg"
+            src="/images/avatar.png"
             alt="User Avatar"
             width={40}
             height={40}

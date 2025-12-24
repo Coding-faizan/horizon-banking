@@ -27,9 +27,9 @@ export const BankCard = ({
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 w-full max-w-xs">
       <div
-        className={`relative w-80 h-48 p-5 rounded-3xl text-white ${variantClasses[variant]}`}
+        className={`relative  w-full h-48 p-5 rounded-3xl text-white ${variantClasses[variant]}`}
       >
         <BankCardLines />
         <p className="absolute top-5 left-5 text-base font-medium">

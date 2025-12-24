@@ -73,7 +73,7 @@ export default function AccountSelect({
                     {account.initials}
                   </div>
                   <div className="text-left">
-                    <p className="text-base font-semibold text-gray-700">
+                    <p className="text-base font-semibold text-gray-700 truncate w-40">
                       {account.name}
                     </p>
                     <p className="text-sm text-primary font-medium">

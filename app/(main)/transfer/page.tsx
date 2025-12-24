@@ -24,7 +24,7 @@ export default function PaymentTransferPage() {
   });
 
   const [selectedAccount, setSelectedAccount] = useState<Account | undefined>(
-    undefined,
+    undefined
   );
 
   const onSubmit = (data: TransferForm) => {
@@ -32,7 +32,7 @@ export default function PaymentTransferPage() {
   };
 
   return (
-    <main className="bg-gray-25 px-8 py-11">
+    <main className="bg-gray-25 px-3 sm:px-8 py-11">
       <div className="">
         <header className="mb-8">
           <h1 className="text-3xl font-semibold text-gray-900">

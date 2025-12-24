@@ -32,7 +32,7 @@ export default function HomePage() {
         </div>
 
         {/* Accounts Cards */}
-        <div className="flex gap-5 p-6 border border-gray-200 rounded-lg">
+        <div className="flex flex-wrap gap-5 p-6 border border-gray-200 rounded-lg">
           <div className="w-30 h-30">
             <DoughnutChart
               data={[12, 12, 13]}
