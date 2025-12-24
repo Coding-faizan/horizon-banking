@@ -8,7 +8,7 @@ import { Button } from '@/app/components/ui/Button';
 import { Input } from '@/app/components/ui/Input';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { LoginFormValues, loginSchema } from '@/lib/schemas/validationSchemas';
-import { routes } from '@/lib/routes';
+import { ROUTES } from '@/lib/routes';
 import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
@@ -25,7 +25,7 @@ export default function LoginPage() {
   });
 
   const onSubmit = async (data: LoginFormValues) => {
-    router.replace(routes.home);
+    router.replace(ROUTES.home);
   };
 
   return (
@@ -78,7 +78,7 @@ export default function LoginPage() {
               Don&apos;t have an account?
             </span>
             <Button variant="link" asChild>
-              <Link href={routes.signup}>Sign up</Link>
+              <Link href={ROUTES.signup}>Sign up</Link>
             </Button>
           </div>
         </form>

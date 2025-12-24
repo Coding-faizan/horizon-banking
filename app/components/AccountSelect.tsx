@@ -5,30 +5,7 @@ import { ChevronDown, Check, Plus } from 'lucide-react';
 import { BankIcon } from './ui/icons/BankIcon';
 import { cn } from '@/lib/utils';
 import { Account } from '@/types/types';
-
-const accounts: Account[] = [
-  {
-    id: 1,
-    name: 'Bank of America',
-    balance: '$2,588.12',
-    initials: 'BA',
-    color: 'bg-purple-500',
-  },
-  {
-    id: 2,
-    name: 'Chase Growth Savings Account',
-    balance: '$2,588.12',
-    initials: 'CG',
-    color: 'bg-blue-600',
-  },
-  {
-    id: 3,
-    name: 'First Platypus Bank',
-    balance: '$2,588.12',
-    initials: 'FB',
-    color: 'bg-green-600',
-  },
-];
+import { accounts } from '@/mocks/account.mocks';
 
 export default function AccountSelect({
   className,
@@ -39,7 +16,7 @@ export default function AccountSelect({
   selectedAccount?: Account;
   onSelect?: (account: Account) => void;
 }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -69,7 +46,7 @@ export default function AccountSelect({
         className="flex w-full items-center justify-between rounded-lg border border-gray-300 bg-white px-4 py-2.5 shadow-xs text-left"
       >
         <div className="flex items-center gap-3">
-          <BankIcon />
+          <BankIcon className="w-5.5 h-4" />
           <span className="text-base font-medium text-gray-800">
             {selectedAccount ? selectedAccount.name : 'Select Account'}
           </span>
@@ -96,7 +73,7 @@ export default function AccountSelect({
                     {account.initials}
                   </div>
                   <div className="text-left">
-                    <p className="text-base font-semibold text-gray-700">
+                    <p className="text-base font-semibold text-gray-700 truncate w-40">
                       {account.name}
                     </p>
                     <p className="text-sm text-primary font-medium">

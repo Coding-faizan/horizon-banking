@@ -1,3 +1,5 @@
+import { cn } from '@/lib/utils';
+
 export const ProgressBar = ({
   progress,
   progressBgColor = 'bg-gray-200',
@@ -9,10 +11,10 @@ export const ProgressBar = ({
 }) => {
   return (
     <div
-      className={`w-full h-2 ${progressBgColor} rounded-full overflow-hidden`}
+      className={cn(`w-full h-2 rounded-full overflow-hidden`, progressBgColor)}
     >
       <div
-        className={`h-2 rounded-full ${progressFillColor}`}
+        className={cn(`h-2 rounded-full`, progressFillColor)}
         style={{ width: `${progress}%` }}
       ></div>
     </div>

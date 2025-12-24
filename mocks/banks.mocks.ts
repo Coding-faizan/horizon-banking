@@ -1,6 +1,6 @@
-import { BankCardProps } from '@/app/components/BankCard';
+import { TBankCard } from '@/types/types';
 
-export const bankCards: BankCardProps[] = [
+export const DUMMY_BANK_CARDS: TBankCard[] = [
   {
     bankName: 'Chase Bank',
     cardNumber: '**** **** **** 4821',
@@ -10,6 +10,7 @@ export const bankCards: BankCardProps[] = [
     variant: 'blue',
     spendingLimit: 1000,
     spendingUsed: 300,
+    balance: 700,
   },
   {
     bankName: 'Bank of America',
@@ -20,6 +21,7 @@ export const bankCards: BankCardProps[] = [
     variant: 'purple',
     spendingLimit: 1000,
     spendingUsed: 300,
+    balance: 700,
   },
   {
     bankName: 'Wells Fargo',
@@ -30,6 +32,7 @@ export const bankCards: BankCardProps[] = [
     variant: 'blue',
     spendingLimit: 1000,
     spendingUsed: 300,
+    balance: 700,
   },
   {
     bankName: 'Citibank',
@@ -40,6 +43,7 @@ export const bankCards: BankCardProps[] = [
     variant: 'blue',
     spendingLimit: 1000,
     spendingUsed: 300,
+    balance: 700,
   },
   {
     bankName: 'Capital One',
@@ -50,6 +54,7 @@ export const bankCards: BankCardProps[] = [
     variant: 'purple',
     spendingLimit: 1000,
     spendingUsed: 300,
+    balance: 700,
   },
   {
     bankName: 'HSBC',
@@ -60,5 +65,6 @@ export const bankCards: BankCardProps[] = [
     variant: 'purple',
     spendingLimit: 1000,
     spendingUsed: 300,
+    balance: 700,
   },
 ];

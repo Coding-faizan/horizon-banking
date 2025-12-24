@@ -10,12 +10,11 @@ interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 export function Input({
   label,
   error,
-  id,
   icon,
   className = '',
   ...props
 }: TextInputProps) {
-  const inputId = id ?? React.useId();
+  const inputId = React.useId();
 
   return (
     <div className="flex flex-col gap-1 w-full max-w-lg">
@@ -37,7 +36,7 @@ export function Input({
             'focus:outline-none focus:ring-1 focus:ring-blue-500',
             'disabled:opacity-50 disabled:cursor-not-allowed',
             icon && 'pl-9',
-            error && 'border-red-500 focus:ring-red-500',
+            error && 'border-red-500 focus:ring-red-500'
           )}
           {...props}
         />

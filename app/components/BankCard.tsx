@@ -1,19 +1,9 @@
 import { Copy, Nfc } from 'lucide-react';
 import Image from 'next/image';
-import { BankCardLines } from './BankCardLines';
+import { BankCardLines } from './ui/icons/BankCardLines';
 import { ProgressBar } from './ProgressBar';
-
-export interface BankCardProps {
-  bankName: string;
-  cardNumber: string;
-  cardHolder: string;
-  expiryDate: string;
-  cardType: 'visa' | 'mastercard';
-  variant: 'blue' | 'purple';
-  isCopyable?: boolean;
-  spendingLimit?: number;
-  spendingUsed?: number;
-}
+import { cn } from '@/lib/utils';
+import { TBankCard } from '@/types/types';
 
 export const BankCard = ({
   bankName,
@@ -25,7 +15,7 @@ export const BankCard = ({
   isCopyable = false,
   spendingLimit,
   spendingUsed,
-}: BankCardProps) => {
+}: TBankCard) => {
   const variantClasses = {
     blue: 'bg-gradient-to-r from-blue-600 to-blue-400',
     purple: 'bg-gradient-to-r from-purple-600 to-purple-600',
@@ -37,11 +27,11 @@ export const BankCard = ({
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 w-full max-w-xs">
       <div
-        className={`relative w-80 h-48 p-5 rounded-3xl text-white ${variantClasses[variant]}`}
+        className={`relative  w-full h-48 p-5 rounded-3xl text-white ${variantClasses[variant]}`}
       >
-        <BankCardLines />
+        <BankCardLines className="absolute left-0 bottom-0 right-0 w-80 h-36" />
         <p className="absolute top-5 left-5 text-base font-medium">
           {bankName}
         </p>
@@ -65,13 +55,21 @@ export const BankCard = ({
           <Nfc className="absolute top-5 right-5 size-6" />
         )}
 
-        <div className="absolute top-36 right-5 flex justify-center items-center bg-white/10 p-2 rounded-sm">
-          <Image
-            src={`/images/${cardType}.png`}
-            alt="Card Chip"
-            width={cardType === 'visa' ? 32 : 28}
-            height={cardType === 'visa' ? 12 : 18}
-          />
+        <div className="absolute top-36 right-5 flex justify-center items-center bg-white/10 w-11.5 h-8 rounded-sm">
+          <div
+            className={cn(
+              'relative',
+              cardType === 'visa' ? 'w-8 h-2.5' : 'w-7 h-4'
+            )}
+          >
+            <Image
+              src={`/images/${cardType}.svg`}
+              alt="Card Chip"
+              fill
+              sizes={cardType === 'visa' ? '32px' : '28px'}
+              className="object-contain"
+            />
+          </div>
         </div>
       </div>
 

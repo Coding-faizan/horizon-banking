@@ -1,15 +1,12 @@
 import { capitalize } from '@/lib/utils';
+import { TransactionStatus } from '@/types/types';
 
-export function StatusPill({
-  status,
-}: {
-  status: 'processing' | 'success' | 'declined';
-}) {
+export function StatusPill({ status }: { status: TransactionStatus }) {
   const styles = {
     processing: 'bg-gray-100 text-gray-700',
     success: 'bg-green-100 text-green-700',
     declined: 'bg-error-50 text-error-700',
-  };
+  } as const;
 
   return (
     <span

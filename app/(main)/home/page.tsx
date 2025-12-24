@@ -4,18 +4,22 @@ import { BudgetCard } from '@/app/components/BudgetCard';
 import { DoughnutChart } from '@/app/components/DoughnutChart';
 import TransactionsTable from '@/app/components/TransactionsTable';
 import TabBar from '@/app/components/ui/TabBar';
+import { DUMMY_BANK_CARDS } from '@/mocks/banks.mocks';
 import { budgets } from '@/mocks/budgets.mocks';
 import { transactions } from '@/mocks/transactions.mocks';
-import { Variant } from '@/types/types';
+import { TBankCard, Variant } from '@/types/types';
 import { MoreVerticalIcon, PlusIcon } from 'lucide-react';
 import Image from 'next/image';
+import { useMemo } from 'react';
 
 export default function HomePage() {
-  const banks = [
-    { id: 'chaseBank', label: 'Chase Bank' },
-    { id: 'bankOfAmerica', label: 'Bank of America' },
-    { id: 'firstPlatypusBank', label: 'First Platypus Bank' },
-  ];
+  const banks = useMemo(
+    () => DUMMY_BANK_CARDS.map((bank) => bank.bankName),
+    []
+  );
+
+  const data = useMemo(() => [12, 12, 13], []);
+  const doghnutBgColors = useMemo(() => ['#0179FE', '#4893FF', '#E9F2FF'], []);
 
   return (
     <div className="flex flex-col xl:flex-row">
@@ -32,12 +36,9 @@ export default function HomePage() {
         </div>
 
         {/* Accounts Cards */}
-        <div className="flex gap-5 p-6 border border-gray-200 rounded-lg">
+        <div className="flex flex-wrap gap-5 p-6 border border-gray-200 rounded-lg">
           <div className="w-30 h-30">
-            <DoughnutChart
-              data={[12, 12, 13]}
-              backgroundColor={['#0179FE', '#4893FF', '#E9F2FF']}
-            />
+            <DoughnutChart data={data} backgroundColor={doghnutBgColors} />
           </div>
 
           <div className="space-y-6 w-full flex-2">
@@ -78,12 +79,14 @@ export default function HomePage() {
       </div>
 
       {/* Profile Section */}
-      <div className="relative w-full xl:w-sm border-l border-gray-200 h-screen pl-2 xl:pl-0">
+      <div className="relative w-full xl:w-sm border-l border-gray-200 h-screen">
         <div className="w-full h-32 relative">
           <Image
             src="/images/profile-gradient.png"
             alt="Profile Gradient"
             fill
+            className="object-cover"
+            sizes="(max-width: 1280px) 100vw, 384px"
           />
         </div>
         <div className="absolute left-4 top-22 w-24 h-24 rounded-full p-1 shadow-lg bg-white">
@@ -92,6 +95,7 @@ export default function HomePage() {
             alt="Avatar"
             fill
             className="rounded-full"
+            sizes="96px"
           />
         </div>
         <div className="space-y-8">

@@ -10,7 +10,7 @@ export function AccountCard({
   initials: string;
 }) {
   return (
-    <div className="flex items-center justify-between rounded-2xl bg-blue-25 px-6 py-5">
+    <div className="flex flex-wrap items-center justify-between rounded-2xl bg-blue-25 px-6 py-5">
       <div className="flex items-center gap-4">
         <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-lg font-semibold text-white">
           {initials}

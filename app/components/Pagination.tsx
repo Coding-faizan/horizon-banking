@@ -12,6 +12,22 @@ export function Pagination({
   currentPage = 1,
   onPageChange,
 }: PaginationProps) {
+  const handlePrevious = () => {
+    if (currentPage > 1) {
+      onPageChange && onPageChange(currentPage - 1);
+    }
+  };
+
+  const handlePageChange = (page: number) => {
+    onPageChange && onPageChange(page);
+  };
+
+  const handleNext = () => {
+    if (currentPage < totalPages) {
+      onPageChange && onPageChange(currentPage + 1);
+    }
+  };
+
   return (
     <div className="flex items-center justify-between w-full text-sm text-gray-400 pt-5 px-4">
       {/* Previous */}
@@ -19,7 +35,7 @@ export function Pagination({
         <button
           className="flex items-center text-gray-600 gap-2"
           disabled={currentPage === 1}
-          onClick={() => onPageChange && onPageChange(currentPage - 1)}
+          onClick={handlePrevious}
         >
           <ArrowLeft className="size-3.5" />
           <span className="text-xs font-semibold">Previous</span>
@@ -32,15 +48,15 @@ export function Pagination({
             (page) => (
               <button
                 key={page}
-                onClick={() => onPageChange && onPageChange(page)}
+                onClick={() => handlePageChange(page)}
                 className={cn(
                   'size-10 rounded-lg flex items-center justify-center text-gray-800 font-medium text-xs',
-                  page === currentPage && 'bg-gray-50',
+                  page === currentPage && 'bg-gray-50'
                 )}
               >
                 {page}
               </button>
-            ),
+            )
           )}
       </div>
 
@@ -49,7 +65,7 @@ export function Pagination({
         <button
           className="flex items-center text-gray-600 gap-2"
           disabled={currentPage === totalPages}
-          onClick={() => onPageChange && onPageChange(currentPage + 1)}
+          onClick={handleNext}
         >
           <span className="text-xs font-semibold">Next</span>
           <ArrowRight className="size-3.5" />
