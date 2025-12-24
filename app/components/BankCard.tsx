@@ -1,6 +1,6 @@
 import { Copy, Nfc } from 'lucide-react';
 import Image from 'next/image';
-import { BankCardLines } from './BankCardLines';
+import { BankCardLines } from './ui/icons/BankCardLines';
 import { ProgressBar } from './ProgressBar';
 import { cn } from '@/lib/utils';
 import { TBankCard } from '@/types/types';
@@ -31,7 +31,7 @@ export const BankCard = ({
       <div
         className={`relative  w-full h-48 p-5 rounded-3xl text-white ${variantClasses[variant]}`}
       >
-        <BankCardLines />
+        <BankCardLines className="absolute left-0 bottom-0 right-0 w-80 h-36" />
         <p className="absolute top-5 left-5 text-base font-medium">
           {bankName}
         </p>

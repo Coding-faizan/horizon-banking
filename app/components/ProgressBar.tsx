@@ -14,7 +14,8 @@ export const ProgressBar = ({
       className={cn(`w-full h-2 rounded-full overflow-hidden`, progressBgColor)}
     >
       <div
-        className={cn(`h-2 rounded-full  w-[${progress}%]`, progressFillColor)}
+        className={cn(`h-2 rounded-full`, progressFillColor)}
+        style={{ width: `${progress}%` }}
       ></div>
     </div>
   );

@@ -4,18 +4,22 @@ import { BudgetCard } from '@/app/components/BudgetCard';
 import { DoughnutChart } from '@/app/components/DoughnutChart';
 import TransactionsTable from '@/app/components/TransactionsTable';
 import TabBar from '@/app/components/ui/TabBar';
+import { DUMMY_BANK_CARDS } from '@/mocks/banks.mocks';
 import { budgets } from '@/mocks/budgets.mocks';
 import { transactions } from '@/mocks/transactions.mocks';
-import { Variant } from '@/types/types';
+import { TBankCard, Variant } from '@/types/types';
 import { MoreVerticalIcon, PlusIcon } from 'lucide-react';
 import Image from 'next/image';
+import { useMemo } from 'react';
 
 export default function HomePage() {
-  const banks = [
-    { id: 'chaseBank', label: 'Chase Bank' },
-    { id: 'bankOfAmerica', label: 'Bank of America' },
-    { id: 'firstPlatypusBank', label: 'First Platypus Bank' },
-  ];
+  const banks = useMemo(
+    () => DUMMY_BANK_CARDS.map((bank) => bank.bankName),
+    []
+  );
+
+  const data = useMemo(() => [12, 12, 13], []);
+  const doghnutBgColors = useMemo(() => ['#0179FE', '#4893FF', '#E9F2FF'], []);
 
   return (
     <div className="flex flex-col xl:flex-row">
@@ -34,10 +38,7 @@ export default function HomePage() {
         {/* Accounts Cards */}
         <div className="flex flex-wrap gap-5 p-6 border border-gray-200 rounded-lg">
           <div className="w-30 h-30">
-            <DoughnutChart
-              data={[12, 12, 13]}
-              backgroundColor={['#0179FE', '#4893FF', '#E9F2FF']}
-            />
+            <DoughnutChart data={data} backgroundColor={doghnutBgColors} />
           </div>
 
           <div className="space-y-6 w-full flex-2">

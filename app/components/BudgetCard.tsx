@@ -82,9 +82,10 @@ export function BudgetCard({
         <div className={cn('h-2 w-full rounded-full', colors.progressBg)}>
           <div
             className={cn(
-              `h-2 rounded-full transition-all w-[${progress}%]`,
+              `h-2 rounded-full transition-all`,
               colors.progressFill
             )}
+            style={{ width: `${progress}%` }}
           />
         </div>
       </div>

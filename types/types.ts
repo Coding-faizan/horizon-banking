@@ -32,6 +32,7 @@ export type TBankCard = {
   isCopyable?: boolean;
   spendingLimit?: number;
   spendingUsed?: number;
+  balance?: number;
 };
 
 export type TransactionCategory =

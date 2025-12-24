@@ -10,6 +10,7 @@ export const DUMMY_BANK_CARDS: TBankCard[] = [
     variant: 'blue',
     spendingLimit: 1000,
     spendingUsed: 300,
+    balance: 700,
   },
   {
     bankName: 'Bank of America',
@@ -20,6 +21,7 @@ export const DUMMY_BANK_CARDS: TBankCard[] = [
     variant: 'purple',
     spendingLimit: 1000,
     spendingUsed: 300,
+    balance: 700,
   },
   {
     bankName: 'Wells Fargo',
@@ -30,6 +32,7 @@ export const DUMMY_BANK_CARDS: TBankCard[] = [
     variant: 'blue',
     spendingLimit: 1000,
     spendingUsed: 300,
+    balance: 700,
   },
   {
     bankName: 'Citibank',
@@ -40,6 +43,7 @@ export const DUMMY_BANK_CARDS: TBankCard[] = [
     variant: 'blue',
     spendingLimit: 1000,
     spendingUsed: 300,
+    balance: 700,
   },
   {
     bankName: 'Capital One',
@@ -50,6 +54,7 @@ export const DUMMY_BANK_CARDS: TBankCard[] = [
     variant: 'purple',
     spendingLimit: 1000,
     spendingUsed: 300,
+    balance: 700,
   },
   {
     bankName: 'HSBC',
@@ -60,5 +65,6 @@ export const DUMMY_BANK_CARDS: TBankCard[] = [
     variant: 'purple',
     spendingLimit: 1000,
     spendingUsed: 300,
+    balance: 700,
   },
 ];

@@ -1,4 +1,8 @@
-export const BankCardLines = () => {
+export const BankCardLines = ({
+  color,
+  className,
+  ...props
+}: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width="320"
@@ -6,7 +10,8 @@ export const BankCardLines = () => {
       viewBox="0 0 302 144"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute left-0 bottom-0 right-0"
+      className={className}
+      {...props}
     >
       <g opacity="0.2">
         <path

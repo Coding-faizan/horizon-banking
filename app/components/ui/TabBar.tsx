@@ -8,11 +8,11 @@ export default function TabBar({
   defaultTab,
   onChange,
 }: {
-  tabs: { id: string; label: string }[];
+  tabs: string[];
   defaultTab?: string;
   onChange?: (id: string) => void;
 }) {
-  const [active, setActive] = useState<string>(defaultTab ?? tabs[0]?.id);
+  const [active, setActive] = useState<string>(defaultTab ?? tabs[0] ?? '');
 
   const handleChange = (id: string) => {
     setActive(id);
@@ -23,18 +23,18 @@ export default function TabBar({
     <div className="border-b border-gray-200">
       <div className="flex gap-8">
         {tabs.map((tab) => {
-          const isActive = tab.id === active;
+          const isActive = tab === active;
 
           return (
             <button
-              key={tab.id}
-              onClick={() => handleChange(tab.id)}
+              key={tab}
+              onClick={() => handleChange(tab)}
               className={cn(
                 'relative pb-3 text-base font-semibold text-gray-500',
                 isActive && 'text-primary'
               )}
             >
-              {tab.label}
+              {tab}
 
               {isActive && (
                 <span className="absolute left-0 right-0 -bottom-px h-0.5 bg-primary" />
