@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import { Link } from 'lucide-react';
+import Link from 'next/link';
 
 type NavLinkProps = {
   href: string;
